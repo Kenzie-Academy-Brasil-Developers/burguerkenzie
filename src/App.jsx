@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import { Header } from './components/Header';
+import { ProductsList } from './components/ProductsList';
 import { instance } from './services/api';
 
 import './App.css';
@@ -18,11 +19,13 @@ function App() {
       .catch((err) => console.log(err));
   }, []);
 
-
   return (
     <div className="App">
       <Header />
-      <main>
+      <main className='container'>
+          <ProductsList
+            data={products}
+          />
       </main>
     </div>
   );
