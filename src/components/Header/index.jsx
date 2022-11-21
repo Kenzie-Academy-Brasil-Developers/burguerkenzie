@@ -1,7 +1,15 @@
+import { InputSearch } from '../InputSearch';
+import { HeaderContainer } from './styles';
+
+import logo from '../../assets/mainLogo.svg';
+
 export const Header = () => {
     return (
-        <div>
-            <h1>Hello Kenzie</h1>
-        </div>
+        <HeaderContainer>
+            <div className='container'>
+                <img draggable='false' src={logo} alt='Burguer Kenzie' />
+                <InputSearch />
+            </div>
+        </HeaderContainer>
     );
 };
