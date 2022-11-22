@@ -12,10 +12,6 @@ export const Header = ({ products, setFilteredProducts, setInputValue }) => {
             const filteredList = products.filter(elem => elem.name.toLowerCase().includes(inputValue));
             setFilteredProducts([...filteredList]);
             setInputValue(inputValue.charAt(0).toUpperCase() + inputValue.slice(1));
-
-            if (filteredList.length) {
-                e.nativeEvent.path[1].children[0].value = '';
-            }
         }
 
     };
