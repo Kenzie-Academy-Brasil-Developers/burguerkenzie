@@ -15,7 +15,6 @@ export const NavBar = styled.nav`
     .mediumGreen {
         position: absolute;
         right: 10px;
-        pointer-events: none;
     }
 
     @media (max-width: 700px) {
