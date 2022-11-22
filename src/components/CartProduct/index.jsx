@@ -2,7 +2,7 @@ import React from 'react';
 
 import { ProductContent } from './styles';
 
-export const CartProduct = ({ data }) => {
+export const CartProduct = ({ data, onClick }) => {
     return (
         <ProductContent>
             <div className='img-box'>
@@ -13,7 +13,7 @@ export const CartProduct = ({ data }) => {
                     <h4>{data.name.length >= 12 ? `${data.name.slice(0, 12)}...` : data.name}</h4>
                     <span>{data.category}</span>
                 </div>
-                <button>Remover</button>
+                <button id={data.id} onClick={onClick}>Remover</button>
             </div>
         </ProductContent>
     );

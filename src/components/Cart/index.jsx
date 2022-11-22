@@ -5,6 +5,12 @@ import { CartTotal } from '../CartTotal';
 import { CartBox, CartContent, CartHeader } from './styles';
 
 export const Cart = ({ currentSale, setCurrentSale }) => {
+
+    const removeProduct = (e) => {
+        const newList = currentSale.filter((elem) => parseInt(e.target.id) !== elem.id);
+        setCurrentSale([...newList]);
+    };
+
     return (
         <CartBox>
             <CartHeader>Carrinho de compras</CartHeader>
@@ -19,6 +25,7 @@ export const Cart = ({ currentSale, setCurrentSale }) => {
                             return (
                                 <CartProduct
                                     data={product}
+                                    onClick={removeProduct}
                                     key={product.id}
                                 />
                             );
