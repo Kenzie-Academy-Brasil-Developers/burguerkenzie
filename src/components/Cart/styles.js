@@ -4,6 +4,14 @@ export const CartBox = styled.aside`
     width: 100%;
     max-width: 325px;
     height: max-content;
+
+    @media (max-width: 900px) {
+        max-width: 100%;
+
+        .product-info {
+            width: 90%;
+        }
+    }
 `;
 
 export const CartHeader = styled.div`
