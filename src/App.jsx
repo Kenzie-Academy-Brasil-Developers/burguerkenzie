@@ -12,7 +12,6 @@ function App() {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [currentSale, setCurrentSale] = useState([]);
-  const [cartTotal, setCartTotal] = useState(0);
 
   useEffect(() => {
     instance.get('/products')
@@ -30,6 +29,7 @@ function App() {
         />
         <Cart
           currentSale={currentSale}
+          setCurrentSale={setCurrentSale}
         />
       </main>
     </div>

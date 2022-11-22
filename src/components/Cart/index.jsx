@@ -4,7 +4,7 @@ import { CartProduct } from '../CartProduct';
 import { CartTotal } from '../CartTotal';
 import { CartBox, CartContent, CartHeader } from './styles';
 
-export const Cart = ({ currentSale }) => {
+export const Cart = ({ currentSale, setCurrentSale }) => {
     return (
         <CartBox>
             <CartHeader>Carrinho de compras</CartHeader>
@@ -26,7 +26,10 @@ export const Cart = ({ currentSale }) => {
                     </ul>
                 </CartContent>
             }
-            {!!currentSale.length && <CartTotal />}
+            {!!currentSale.length && <CartTotal
+                currentSale={currentSale}
+                setCurrentSale={setCurrentSale}
+            />}
         </CartBox>
     );
 };
