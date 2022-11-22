@@ -1,11 +1,12 @@
 import React from 'react';
+
 import { Product } from '../Product';
 import { ProductsBox } from './styles';
 
 export const ProductsList = ({ data }) => {
     return (
-        <div>
-            <ProductsBox>
+        <ProductsBox>
+            <ul>
                 {data.map((product) => {
                     return (
                         <Product
@@ -14,7 +15,7 @@ export const ProductsList = ({ data }) => {
                         />
                     );
                 })}
-            </ProductsBox>
-        </div>
+            </ul>
+        </ProductsBox>
     );
 };
