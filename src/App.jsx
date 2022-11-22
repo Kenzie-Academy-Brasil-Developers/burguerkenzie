@@ -5,6 +5,9 @@ import { Header } from './components/Header';
 import { ProductsList } from './components/ProductsList';
 import { instance } from './services/api';
 
+import { ToastContainer } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.min.css';
 import './App.css';
 
 function App() {
@@ -40,6 +43,18 @@ function App() {
           setCurrentSale={setCurrentSale}
         />
       </main>
+      <ToastContainer
+        position="top-center"
+        autoClose={1800}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </div>
   );
 }
