@@ -1,13 +1,12 @@
 import React from 'react';
 
-import testImg from '../../assets/soOUeeW.png';
 import { ProductContent } from './styles';
 
 export const CartProduct = ({ data }) => {
     return (
         <ProductContent>
             <div className='img-box'>
-                <img draggable='false' src={testImg} alt={data.name} />
+                <img draggable='false' src={data.img} alt={data.name} />
             </div>
             <div className="product-info">
                 <div className="product-desc">
