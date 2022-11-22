@@ -3,6 +3,8 @@ import React from 'react';
 import { Product } from '../Product';
 import { FilterTools, ProductsBox } from './styles';
 
+import { toast } from 'react-toastify';
+
 export const ProductsList = ({ data, setCurrentSale, setFilteredProducts, filteredProducts, inputValue }) => {
 
     const handleClick = (e) => {
@@ -11,7 +13,10 @@ export const ProductsList = ({ data, setCurrentSale, setFilteredProducts, filter
         setCurrentSale((old) => {
             if (!old.find(elem => parseInt(e.target.id) === elem.id)) {
                 return [...old, obj];
-            } else return old;
+            } else {
+                toast.warn('O produto já foi adicionado!');
+                return old;
+            }
         });
     };
 
