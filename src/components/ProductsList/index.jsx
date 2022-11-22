@@ -12,6 +12,7 @@ export const ProductsList = ({ data, setCurrentSale, setFilteredProducts, filter
 
         setCurrentSale((old) => {
             if (!old.find(elem => parseInt(e.target.id) === elem.id)) {
+                toast.success(`${obj.name} foi adicionado ao carrinho`, {autoClose: 800});
                 return [...old, obj];
             } else {
                 toast.warn('O produto já foi adicionado!');
