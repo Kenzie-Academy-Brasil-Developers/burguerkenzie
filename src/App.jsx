@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 
+import { Cart } from './components/Cart';
 import { Header } from './components/Header';
 import { ProductsList } from './components/ProductsList';
 import { instance } from './services/api';
@@ -23,9 +24,12 @@ function App() {
     <div className="App">
       <Header />
       <main className='container'>
-          <ProductsList
-            data={products}
-          />
+        <ProductsList
+          data={products}
+        />
+        <Cart
+          currentSale={currentSale}
+        />
       </main>
     </div>
   );
