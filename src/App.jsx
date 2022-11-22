@@ -31,7 +31,9 @@ function App() {
         <ProductsList
           data={products}
           setCurrentSale={setCurrentSale}
+          setFilteredProducts={setFilteredProducts}
           filteredProducts={filteredProducts}
+          inputValue={inputValue}
         />
         <Cart
           currentSale={currentSale}
