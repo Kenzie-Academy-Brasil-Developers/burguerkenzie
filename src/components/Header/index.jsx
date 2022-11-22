@@ -15,7 +15,7 @@ export const Header = ({ products, setFilteredProducts }) => {
         <HeaderContainer>
             <div className='container'>
                 <img draggable='false' src={logo} alt='Burguer Kenzie' />
-                <InputSearch onClick={handleInput} />
+                <InputSearch onClick={handleInput} setFilteredProducts={setFilteredProducts} />
             </div>
         </HeaderContainer>
     );
