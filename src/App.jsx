@@ -1,34 +1,38 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { useEffect, useState } from 'react';
+
+import { Cart } from './components/Cart';
+import { Header } from './components/Header';
+import { ProductsList } from './components/ProductsList';
+import { instance } from './services/api';
+
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [products, setProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [currentSale, setCurrentSale] = useState([]);
+  const [cartTotal, setCartTotal] = useState(0);
+
+  useEffect(() => {
+    instance.get('/products')
+      .then((res) => setProducts(res.data))
+      .catch((err) => console.log(err));
+  }, []);
 
   return (
     <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Header />
+      <main className='container'>
+        <ProductsList
+          data={products}
+        />
+        <Cart
+          currentSale={currentSale}
+        />
+      </main>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
