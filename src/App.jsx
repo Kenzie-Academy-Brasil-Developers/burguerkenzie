@@ -21,11 +21,15 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
+      <Header 
+      products={products}
+      setFilteredProducts={setFilteredProducts}
+      />
       <main className='container'>
         <ProductsList
           data={products}
           setCurrentSale={setCurrentSale}
+          filteredProducts={filteredProducts}
         />
         <Cart
           currentSale={currentSale}

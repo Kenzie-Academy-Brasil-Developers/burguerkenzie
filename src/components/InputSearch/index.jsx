@@ -1,6 +1,6 @@
 import { NavBar } from './styles';
 
-export const InputSearch = () => {
+export const InputSearch = ({ onClick }) => {
     return (
         <NavBar>
             <li>
@@ -10,7 +10,7 @@ export const InputSearch = () => {
                     id='search'
                     placeholder='Digitar Pesquisa'
                 />
-                <button className='btn mediumGreen'>Pesquisar</button>
+                <button onClick={onClick} className='btn mediumGreen'>Pesquisar</button>
             </li>
         </NavBar>
     );

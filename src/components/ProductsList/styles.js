@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const ProductsBox = styled.div`
     padding-bottom: 20px;
+    width: 100%;
 
     ul {
         display: flex;

@@ -3,7 +3,7 @@ import React from 'react';
 import { Product } from '../Product';
 import { ProductsBox } from './styles';
 
-export const ProductsList = ({ data, setCurrentSale }) => {
+export const ProductsList = ({ data, setCurrentSale, filteredProducts }) => {
 
     const handleClick = (e) => {
         const obj = data.find(elem => parseInt(e.target.id) === elem.id);
@@ -15,10 +15,12 @@ export const ProductsList = ({ data, setCurrentSale }) => {
         });
     };
 
+    const newData = filteredProducts.length ? filteredProducts : data;
+
     return (
         <ProductsBox>
             <ul>
-                {data.map((product) => {
+                {newData.map((product) => {
                     return (
                         <Product
                             product={product}
