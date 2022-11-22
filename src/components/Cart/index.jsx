@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { CartProduct } from '../CartProduct';
+import { CartTotal } from '../CartTotal';
 import { CartBox, CartContent, CartHeader } from './styles';
 
 export const Cart = ({ currentSale }) => {
@@ -25,6 +26,7 @@ export const Cart = ({ currentSale }) => {
                     </ul>
                 </CartContent>
             }
+            {!!currentSale.length && <CartTotal />}
         </CartBox>
     );
 };
