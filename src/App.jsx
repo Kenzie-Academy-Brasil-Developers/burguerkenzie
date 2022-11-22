@@ -5,6 +5,9 @@ import { Header } from './components/Header';
 import { ProductsList } from './components/ProductsList';
 import { instance } from './services/api';
 
+import { ToastContainer } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.min.css';
 import './App.css';
 
 function App() {
@@ -12,7 +15,7 @@ function App() {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [currentSale, setCurrentSale] = useState([]);
-  const [cartTotal, setCartTotal] = useState(0);
+  const [inputValue, setInputValue] = useState('');
 
   useEffect(() => {
     instance.get('/products')
@@ -22,15 +25,36 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
+      <Header
+        products={products}
+        setFilteredProducts={setFilteredProducts}
+        setInputValue={setInputValue}
+      />
       <main className='container'>
         <ProductsList
           data={products}
+          setCurrentSale={setCurrentSale}
+          setFilteredProducts={setFilteredProducts}
+          filteredProducts={filteredProducts}
+          inputValue={inputValue}
         />
         <Cart
           currentSale={currentSale}
+          setCurrentSale={setCurrentSale}
         />
       </main>
+      <ToastContainer
+        position="top-center"
+        autoClose={1800}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </div>
   );
 }

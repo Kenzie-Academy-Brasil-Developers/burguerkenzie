@@ -4,7 +4,13 @@ import { CartProduct } from '../CartProduct';
 import { CartTotal } from '../CartTotal';
 import { CartBox, CartContent, CartHeader } from './styles';
 
-export const Cart = ({ currentSale }) => {
+export const Cart = ({ currentSale, setCurrentSale }) => {
+
+    const removeProduct = (e) => {
+        const newList = currentSale.filter((elem) => parseInt(e.target.id) !== elem.id);
+        setCurrentSale([...newList]);
+    };
+
     return (
         <CartBox>
             <CartHeader>Carrinho de compras</CartHeader>
@@ -19,6 +25,7 @@ export const Cart = ({ currentSale }) => {
                             return (
                                 <CartProduct
                                     data={product}
+                                    onClick={removeProduct}
                                     key={product.id}
                                 />
                             );
@@ -26,7 +33,10 @@ export const Cart = ({ currentSale }) => {
                     </ul>
                 </CartContent>
             }
-            {!!currentSale.length && <CartTotal />}
+            {!!currentSale.length && <CartTotal
+                currentSale={currentSale}
+                setCurrentSale={setCurrentSale}
+            />}
         </CartBox>
     );
 };
