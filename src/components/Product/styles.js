@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const ProductContent = styled.li`
-    width: 300px;
+    width: 255px;
     height: 346px;
     border-radius: .3125rem;
     border: 2px solid var(--color-grey-20);
