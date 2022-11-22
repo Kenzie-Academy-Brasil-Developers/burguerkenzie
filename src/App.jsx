@@ -12,6 +12,7 @@ function App() {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [currentSale, setCurrentSale] = useState([]);
+  const [inputValue, setInputValue] = useState('');
 
   useEffect(() => {
     instance.get('/products')
@@ -21,9 +22,10 @@ function App() {
 
   return (
     <div className="App">
-      <Header 
-      products={products}
-      setFilteredProducts={setFilteredProducts}
+      <Header
+        products={products}
+        setFilteredProducts={setFilteredProducts}
+        setInputValue={setInputValue}
       />
       <main className='container'>
         <ProductsList
