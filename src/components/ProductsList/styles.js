@@ -50,11 +50,15 @@ export const FilterTools = styled.div`
         color: var(--color-grey-50);
     }
 
-    @media (max-width: 512px) {
+    @media (max-width: 682px) {
         height: 60px;
 
         button {
             display: none;
         }
+    }
+
+    @media (max-width: 425px) {
+        height: 100px;
     }
 `;
