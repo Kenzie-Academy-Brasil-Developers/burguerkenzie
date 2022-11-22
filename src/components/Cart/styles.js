@@ -44,4 +44,14 @@ export const CartContent = styled.div`
         line-height: 1.5rem;
         color: var(--color-grey-50);
     }
+
+    ul {
+        width: 100%;
+        height: 94%;
+        padding: .2rem .625rem;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        overflow: auto;
+    }
 `;
