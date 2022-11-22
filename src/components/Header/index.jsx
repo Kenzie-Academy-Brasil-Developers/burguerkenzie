@@ -1,6 +1,8 @@
 import { InputSearch } from '../InputSearch';
 import { HeaderContainer } from './styles';
 
+import { toast } from 'react-toastify';
+
 import logo from '../../assets/mainLogo.svg';
 
 export const Header = ({ products, setFilteredProducts, setInputValue }) => {
@@ -12,6 +14,10 @@ export const Header = ({ products, setFilteredProducts, setInputValue }) => {
             const filteredList = products.filter(elem => elem.name.toLowerCase().includes(inputValue));
             setFilteredProducts([...filteredList]);
             setInputValue(inputValue.charAt(0).toUpperCase() + inputValue.slice(1));
+
+            if (!filteredList.length) {
+                toast.error('Nenhum produto foi encontrado');
+            }
         }
 
     };
