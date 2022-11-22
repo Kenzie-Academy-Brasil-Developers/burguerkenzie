@@ -3,7 +3,18 @@ import React from 'react';
 import { Product } from '../Product';
 import { ProductsBox } from './styles';
 
-export const ProductsList = ({ data }) => {
+export const ProductsList = ({ data, setCurrentSale }) => {
+
+    const handleClick = (e) => {
+        const obj = data.find(elem => parseInt(e.target.id) === elem.id);
+        
+        setCurrentSale((old) => {
+            if (!old.find(elem => parseInt(e.target.id) === elem.id)) {
+                return [...old, obj];
+            } else return old;
+        });
+    };
+
     return (
         <ProductsBox>
             <ul>
@@ -11,6 +22,7 @@ export const ProductsList = ({ data }) => {
                     return (
                         <Product
                             product={product}
+                            onClick={handleClick}
                             key={product.id}
                         />
                     );

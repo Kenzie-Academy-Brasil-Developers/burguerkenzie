@@ -26,6 +26,7 @@ function App() {
       <main className='container'>
         <ProductsList
           data={products}
+          setCurrentSale={setCurrentSale}
         />
         <Cart
           currentSale={currentSale}
