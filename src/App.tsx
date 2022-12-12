@@ -10,9 +10,7 @@ import './App.css';
 function App() {
 
   return (
-    <div>
-      <Header />
-
+    <>
       <CartProvider>
         <Home />
       </CartProvider>
@@ -29,7 +27,7 @@ function App() {
         pauseOnHover
         theme="light"
       />
-    </div>
+    </>
   );
 }
 
