@@ -1,5 +1,10 @@
 import styled from 'styled-components';
 
+
+interface ICartContentProps {
+    heightSize: string;
+}
+
 export const CartBox = styled.aside`
     width: 100%;
     max-width: 325px;
@@ -29,8 +34,8 @@ export const CartHeader = styled.div`
     color: var(--color-white);
 `;
 
-export const CartContent = styled.div`
-    height: ${(props) => props.heightSize};
+export const CartContent = styled.div<ICartContentProps>`
+    height: ${({heightSize}) => heightSize};
     background-color: var(--color-grey-0);
     border-radius: 0 0 5px 5px;
     display: flex;

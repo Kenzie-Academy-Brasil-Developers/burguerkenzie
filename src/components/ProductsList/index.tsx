@@ -1,17 +1,19 @@
-import React from 'react';
+import { useContext } from 'react';
 import { toast } from 'react-toastify';
+import { CartContext } from '../../contexts/CartContext';
 
 import { Product } from '../Product';
 import { FilterTools, ProductsBox } from './styles';
 
-export const ProductsList = ({ data, setCurrentSale, setFilteredProducts, filteredProducts, inputValue }) => {
+export const ProductsList = () => {
+    const { products: data, setCurrentSale, setFilteredProducts, filteredProducts, inputValue } = useContext(CartContext);
 
-    const handleClick = (e) => {
-        const obj = data.find(elem => parseInt(e.target.id) === elem.id);
+    const handleClick = (e: any) => {
+        const obj: any = data.find(({ id }) => parseInt(e.target.id) === id);
 
-        setCurrentSale((old) => {
-            if (!old.find(elem => parseInt(e.target.id) === elem.id)) {
-                toast.success(`${obj.name} foi adicionado ao carrinho`, {autoClose: 800});
+        setCurrentSale((old: any) => {
+            if (!old.find((elem: any) => parseInt(e.target.id) === elem.id)) {
+                toast.success(`${obj.name} foi adicionado ao carrinho`, { autoClose: 800 });
                 return [...old, obj];
             } else {
                 toast.warn('O produto já foi adicionado!');
@@ -22,7 +24,7 @@ export const ProductsList = ({ data, setCurrentSale, setFilteredProducts, filter
 
     const newData = filteredProducts.length ? filteredProducts : data;
 
-    return (
+    return ( 
         <ProductsBox>
             {!!filteredProducts.length &&
                 <FilterTools>
@@ -31,12 +33,12 @@ export const ProductsList = ({ data, setCurrentSale, setFilteredProducts, filter
                         <span>{inputValue}</span>
                     </div>
                     <button
-                        onClick={(e) => !e.target.value.length && setFilteredProducts([])}
+                        onClick={(e: any) => !e.target.value.length && setFilteredProducts([])}
                         className='btn mediumGreen'
                     >Limpar busca</button>
                 </FilterTools>}
             <ul>
-                {newData.map((product) => {
+                {newData.map((product: any) => {
                     return (
                         <Product
                             product={product}
