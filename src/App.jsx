@@ -1,14 +1,13 @@
 import { useEffect, useState } from 'react';
+import { ToastContainer } from 'react-toastify';
 
 import { Cart } from './components/Cart';
 import { Header } from './components/Header';
 import { ProductsList } from './components/ProductsList';
 import { instance } from './services/api';
 
-import { ToastContainer } from 'react-toastify';
-
-import 'react-toastify/dist/ReactToastify.min.css';
 import './App.css';
+import 'react-toastify/dist/ReactToastify.min.css';
 
 function App() {
 
