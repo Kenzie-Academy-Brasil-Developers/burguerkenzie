@@ -1,9 +1,8 @@
 import React from 'react';
+import { toast } from 'react-toastify';
 
 import { Product } from '../Product';
 import { FilterTools, ProductsBox } from './styles';
-
-import { toast } from 'react-toastify';
 
 export const ProductsList = ({ data, setCurrentSale, setFilteredProducts, filteredProducts, inputValue }) => {
 
