@@ -3,15 +3,19 @@ import { HeaderContainer } from './styles';
 
 import { toast } from 'react-toastify';
 
+import { useContext } from 'react';
+import { CartContext } from '../../contexts/CartContext';
+
 import logo from '../../assets/mainLogo.svg';
 
-export const Header = ({ products, setFilteredProducts, setInputValue }) => {
+export const Header = () => {
+    const { products, setFilteredProducts, setInputValue } = useContext(CartContext);
 
-    const handleInput = (e) => {
+    const handleInput = (e: any) => {
         const inputValue = e.nativeEvent.path[1].children[0].value.toLowerCase();
 
         if (inputValue.length) {
-            const filteredList = products.filter(elem => elem.name.toLowerCase().includes(inputValue));
+            const filteredList = products.filter((elem: any) => elem.name.toLowerCase().includes(inputValue));
             setFilteredProducts([...filteredList]);
             setInputValue(inputValue.charAt(0).toUpperCase() + inputValue.slice(1));
 

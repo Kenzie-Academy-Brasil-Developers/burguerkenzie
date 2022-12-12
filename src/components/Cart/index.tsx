@@ -1,13 +1,15 @@
-import React from 'react';
+import { useContext } from 'react';
+import { CartContext } from '../../contexts/CartContext';
 
 import { CartProduct } from '../CartProduct';
 import { CartTotal } from '../CartTotal';
 import { CartBox, CartContent, CartHeader } from './styles';
 
-export const Cart = ({ currentSale, setCurrentSale }) => {
+export const Cart = () => {
+    const { currentSale, setCurrentSale } = useContext(CartContext);
 
-    const removeProduct = (e) => {
-        const newList = currentSale.filter((elem) => parseInt(e.target.id) !== elem.id);
+    const removeProduct = (e: any) => {
+        const newList = currentSale.filter((elem: any) => parseInt(e.target.id) !== elem.id);
         setCurrentSale([...newList]);
     };
 
@@ -21,7 +23,7 @@ export const Cart = ({ currentSale, setCurrentSale }) => {
                 </CartContent>
                 : <CartContent heightSize='305px'>
                     <ul>
-                        {currentSale.map((product) => {
+                        {currentSale.map((product: any) => {
                             return (
                                 <CartProduct
                                     data={product}
@@ -33,10 +35,7 @@ export const Cart = ({ currentSale, setCurrentSale }) => {
                     </ul>
                 </CartContent>
             }
-            {!!currentSale.length && <CartTotal
-                currentSale={currentSale}
-                setCurrentSale={setCurrentSale}
-            />}
+            {!!currentSale.length && <CartTotal />}
         </CartBox>
     );
 };

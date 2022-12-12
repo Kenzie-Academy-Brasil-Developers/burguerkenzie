@@ -1,6 +1,6 @@
-import React from 'react';
-
 import { ProductContent } from './styles';
+
+
 
 export const CartProduct = ({ data, onClick }) => {
     return (
