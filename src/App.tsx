@@ -10,12 +10,12 @@ import './App.css';
 import 'react-toastify/dist/ReactToastify.min.css';
 
 function App() {
-
+  
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [currentSale, setCurrentSale] = useState([]);
   const [inputValue, setInputValue] = useState('');
-
+  
   useEffect(() => {
     instance.get('/products')
       .then((res) => setProducts(res.data))
