@@ -1,8 +1,11 @@
-import React from 'react';
-
 import { ProductContent, ProductInfo } from './styles';
 
-export const Product = ({ product, onClick }) => {
+interface IProductProps {
+    product: any;
+    onClick: (e: any) => void;
+}
+
+export const Product = ({ product, onClick }: IProductProps) => {
     return (
         <ProductContent>
             <div className='img-box'>
