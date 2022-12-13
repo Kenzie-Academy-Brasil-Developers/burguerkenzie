@@ -2,8 +2,8 @@ import { ToastContainer } from 'react-toastify';
 
 import { MainRoutes as Routes } from './routes';
 
-import './App.css';
 import 'react-toastify/dist/ReactToastify.min.css';
+import './App.css';
 
 function App() {
 
@@ -12,7 +12,7 @@ function App() {
       <Routes />
 
       <ToastContainer
-        position="top-center"
+        position='top-center'
         autoClose={1800}
         hideProgressBar={false}
         newestOnTop={false}
@@ -21,7 +21,7 @@ function App() {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="light"
+        theme='light'
       />
     </>
   );
