@@ -1,7 +1,6 @@
 import { ToastContainer } from 'react-toastify';
 
-import { CartProvider } from './contexts/CartContext';
-import { Home } from './pages/Home';
+import { MainRoutes as Routes } from './routes';
 
 import './App.css';
 import 'react-toastify/dist/ReactToastify.min.css';
@@ -10,9 +9,7 @@ function App() {
 
   return (
     <>
-      <CartProvider>
-        <Home />
-      </CartProvider>
+      <Routes />
 
       <ToastContainer
         position="top-center"
