@@ -8,7 +8,7 @@ export const CartTotal = () => {
 
   return (
     <FooterStyled>
-      <div className="total-value">
+      <div className='total-value'>
         <h4>Total</h4>
         <span>{currentSale.reduce((acc: number, cur: any) => acc + cur.price, 0)
           .toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}</span>

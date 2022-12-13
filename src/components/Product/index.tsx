@@ -1,8 +1,19 @@
-import React from 'react';
-
 import { ProductContent, ProductInfo } from './styles';
 
-export const Product = ({ product, onClick }) => {
+interface IProductData {
+    id: string;
+    name: string;
+    category: string;
+    price: number;
+    img: string;
+}
+
+interface IProductProps {
+    product: IProductData;
+    onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
+}
+
+export const Product = ({ product, onClick }: IProductProps) => {
     return (
         <ProductContent>
             <div className='img-box'>
