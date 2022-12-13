@@ -1,8 +1,16 @@
 import { ProductContent, ProductInfo } from './styles';
 
+interface IProductData {
+    id: string;
+    name: string;
+    category: string;
+    price: number;
+    img: string;
+}
+
 interface IProductProps {
-    product: any;
-    onClick: (e: any) => void;
+    product: IProductData;
+    onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 export const Product = ({ product, onClick }: IProductProps) => {
