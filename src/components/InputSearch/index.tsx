@@ -1,9 +1,13 @@
 import { useContext } from 'react';
-import { CartContext } from '../../contexts/CartContext';
 
+import { CartContext } from '../../contexts/CartContext';
 import { NavBar } from './styles';
 
-export const InputSearch = ({ onClick }) => {
+interface IInputSearchProps {
+    onClick: (e: any) => void;
+}
+
+export const InputSearch = ({ onClick }: IInputSearchProps) => {
     const { setFilteredProducts } = useContext(CartContext);
 
     return (
