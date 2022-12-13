@@ -1,11 +1,10 @@
 import { ToastContainer } from 'react-toastify';
 
-import { Header } from './components/Header';
 import { CartProvider } from './contexts/CartContext';
 import { Home } from './pages/Home';
 
-import 'react-toastify/dist/ReactToastify.min.css';
 import './App.css';
+import 'react-toastify/dist/ReactToastify.min.css';
 
 function App() {
 
