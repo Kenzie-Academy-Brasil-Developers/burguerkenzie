@@ -1,12 +1,10 @@
-import { InputSearch } from '../InputSearch';
-import { HeaderContainer } from './styles';
-
+import { useContext } from 'react';
 import { toast } from 'react-toastify';
 
-import { useContext } from 'react';
-import { CartContext } from '../../contexts/CartContext';
-
 import logo from '../../assets/mainLogo.svg';
+import { CartContext } from '../../contexts/CartContext';
+import { InputSearch } from '../InputSearch';
+import { HeaderContainer } from './styles';
 
 export const Header = () => {
     const { products, setFilteredProducts, setInputValue } = useContext(CartContext);
@@ -30,7 +28,7 @@ export const Header = () => {
         <HeaderContainer>
             <div className='container'>
                 <img draggable='false' src={logo} alt='Burguer Kenzie' />
-                <InputSearch onClick={handleInput} setFilteredProducts={setFilteredProducts} />
+                <InputSearch onClick={handleInput} />
             </div>
         </HeaderContainer>
     );
