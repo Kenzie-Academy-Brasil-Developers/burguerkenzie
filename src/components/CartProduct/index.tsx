@@ -1,8 +1,11 @@
 import { ProductContent } from './styles';
 
+interface ICartProductProps {
+    data: any;
+    onClick: (e: any) => void;
+}
 
-
-export const CartProduct = ({ data, onClick }) => {
+export const CartProduct = ({ data, onClick }: ICartProductProps) => {
     return (
         <ProductContent>
             <div className='img-box'>
