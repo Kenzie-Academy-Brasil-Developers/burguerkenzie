@@ -1,5 +1,12 @@
+import { Branding } from '../../components/Branding';
+import { FormRegister } from '../../components/Form/FormRegister';
+import { UserContainer } from './styles';
+
 export const Register = () => {
     return (
-        <div>Register</div>
+        <UserContainer>
+            <Branding />
+            <FormRegister />
+        </UserContainer>
     );
 };
