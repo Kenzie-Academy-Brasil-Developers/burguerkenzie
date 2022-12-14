@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 
 import { CartContext } from '../../contexts/CartContext';
+import { DefaultInput } from '../../styles/inputs';
 import { NavBar } from './styles';
 
 interface IInputSearchProps {
@@ -13,7 +14,7 @@ export const InputSearch = ({ onClick }: IInputSearchProps) => {
     return (
         <NavBar>
             <li>
-                <input
+                <DefaultInput
                     type='text'
                     className='defaultInput'
                     id='search'
