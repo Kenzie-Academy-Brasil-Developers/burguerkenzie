@@ -4,7 +4,7 @@ import { CartContext } from '../../contexts/CartContext';
 import { NavBar } from './styles';
 
 interface IInputSearchProps {
-    onClick: (e: any) => void;
+    onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 export const InputSearch = ({ onClick }: IInputSearchProps) => {

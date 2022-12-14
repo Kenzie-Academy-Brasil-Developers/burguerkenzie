@@ -1,30 +1,30 @@
 import { useContext } from 'react';
 import { toast } from 'react-toastify';
-import { CartContext } from '../../contexts/CartContext';
 
+import { CartContext, IProducts } from '../../contexts/CartContext';
 import { Product } from '../Product';
 import { FilterTools, ProductsBox } from './styles';
 
 export const ProductsList = () => {
-    const { products: data, setCurrentSale, setFilteredProducts, filteredProducts, inputValue } = useContext(CartContext);
+    const { products: data, currentSale, setCurrentSale, setFilteredProducts, filteredProducts, inputValue } = useContext(CartContext);
 
-    const handleClick = (e: any) => {
-        const obj: any = data.find(({ id }) => parseInt(e.target.id) === id);
+    const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+        let obj: IProducts | null = data.find(({ id }) => parseInt(e.currentTarget.id) === id) || null;
 
-        setCurrentSale((old: any) => {
-            if (!old.find((elem: any) => parseInt(e.target.id) === elem.id)) {
+        if (!currentSale.find((elem) => parseInt(e.currentTarget.id) === elem.id)) {
+            if(obj !== null) {
                 toast.success(`${obj.name} foi adicionado ao carrinho`, { autoClose: 800 });
-                return [...old, obj];
-            } else {
-                toast.warn('O produto já foi adicionado!');
-                return old;
+                setCurrentSale([...currentSale, obj]);
             }
-        });
+        } else {
+            toast.warn('O produto já foi adicionado!');
+            setCurrentSale(currentSale);
+        }
     };
 
     const newData = filteredProducts.length ? filteredProducts : data;
 
-    return ( 
+    return (
         <ProductsBox>
             {!!filteredProducts.length &&
                 <FilterTools>
@@ -33,12 +33,12 @@ export const ProductsList = () => {
                         <span>{inputValue}</span>
                     </div>
                     <button
-                        onClick={(e: any) => !e.target.value.length && setFilteredProducts([])}
+                        onClick={(e) => !e.currentTarget.value.length && setFilteredProducts([])}
                         className='btn mediumGreen'
                     >Limpar busca</button>
                 </FilterTools>}
             <ul>
-                {newData.map((product: any) => {
+                {newData.map((product) => {
                     return (
                         <Product
                             product={product}

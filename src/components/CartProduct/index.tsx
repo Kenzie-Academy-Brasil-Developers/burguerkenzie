@@ -1,8 +1,9 @@
+import { IProducts } from '../../contexts/CartContext';
 import { ProductContent } from './styles';
 
 interface ICartProductProps {
-    data: any;
-    onClick: (e: any) => void;
+    data: IProducts;
+    onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 export const CartProduct = ({ data, onClick }: ICartProductProps) => {
@@ -16,7 +17,7 @@ export const CartProduct = ({ data, onClick }: ICartProductProps) => {
                     <h4>{data.name.length >= 12 ? `${data.name.slice(0, 12)}...` : data.name}</h4>
                     <span>{data.category}</span>
                 </div>
-                <button id={data.id} onClick={onClick}>Remover</button>
+                <button id={data.id.toString()} onClick={onClick}>Remover</button>
             </div>
         </ProductContent>
     );

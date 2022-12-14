@@ -10,10 +10,10 @@ export const Header = () => {
     const { products, setFilteredProducts, setInputValue } = useContext(CartContext);
 
     const handleInput = (e: any) => {
-        const inputValue = e.nativeEvent.path[1].children[0].value.toLowerCase();
+        const inputValue = e.target.previousSibling.value.toLowerCase();
 
         if (inputValue.length) {
-            const filteredList = products.filter((elem: any) => elem.name.toLowerCase().includes(inputValue));
+            const filteredList = products.filter((elem) => elem.name.toLowerCase().includes(inputValue));
             setFilteredProducts([...filteredList]);
             setInputValue(inputValue.charAt(0).toUpperCase() + inputValue.slice(1));
 
@@ -21,7 +21,6 @@ export const Header = () => {
                 toast.error('Nenhum produto foi encontrado');
             }
         }
-
     };
 
     return (
