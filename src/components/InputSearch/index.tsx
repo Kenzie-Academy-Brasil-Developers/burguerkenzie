@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 
 import { CartContext } from '../../contexts/CartContext';
+import { Button } from '../../styles/buttons';
 import { DefaultInput } from '../../styles/inputs';
 import { NavBar } from './styles';
 
@@ -20,7 +21,7 @@ export const InputSearch = ({ onClick }: IInputSearchProps) => {
                     placeholder='Digitar Pesquisa'
                     onChange={(e) => !e.target.value.length && setFilteredProducts([])}
                 />
-                <button onClick={onClick} className='btn mediumGreen'>Pesquisar</button>
+                <Button onClick={onClick} variant='mediumGreen'>Pesquisar</Button>
             </li>
         </NavBar>
     );
