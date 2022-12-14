@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import { toast } from 'react-toastify';
 
 import { CartContext, IProducts } from '../../contexts/CartContext';
+import { Button } from '../../styles/buttons';
 import { Product } from '../Product';
 import { FilterTools, ProductsBox } from './styles';
 
@@ -32,10 +33,10 @@ export const ProductsList = () => {
                         <h3>Resultados para:</h3>
                         <span>{inputValue}</span>
                     </div>
-                    <button
+                    <Button
                         onClick={(e) => !e.currentTarget.value.length && setFilteredProducts([])}
-                        className='btn mediumGreen'
-                    >Limpar busca</button>
+                        variant='mediumGreen'
+                    >Limpar busca</Button>
                 </FilterTools>}
             <ul>
                 {newData.map((product) => {
