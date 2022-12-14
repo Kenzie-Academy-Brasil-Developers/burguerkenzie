@@ -16,7 +16,6 @@ export const InputSearch = ({ onClick }: IInputSearchProps) => {
             <li>
                 <DefaultInput
                     type='text'
-                    className='defaultInput'
                     id='search'
                     placeholder='Digitar Pesquisa'
                     onChange={(e) => !e.target.value.length && setFilteredProducts([])}
