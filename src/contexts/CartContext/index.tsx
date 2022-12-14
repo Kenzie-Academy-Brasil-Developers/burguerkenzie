@@ -33,11 +33,20 @@ export const CartProvider = ({ children }: ICartProps) => {
     const [filteredProducts, setFilteredProducts] = useState([] as IProducts[]);
     const [currentSale, setCurrentSale] = useState([] as IProducts[]);
     const [inputValue, setInputValue] = useState('');
-    
+
     useEffect(() => {
-        instance.get('/products')
-            .then((res) => setProducts(res.data))
-            .catch((err) => console.log(err));
+        const fetchProducts = async () => {
+            try {
+                const { data } = await instance.get('/products', {
+                    headers: { Authorization: `Bearer ${localStorage.userToken}` },
+                });
+
+                setProducts(data);
+            } catch (err) {
+                return err;
+            }
+        };
+        fetchProducts();
     }, []);
 
     return (
