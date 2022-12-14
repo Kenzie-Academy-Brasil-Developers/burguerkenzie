@@ -6,7 +6,7 @@ interface ICartProps {
     children: React.ReactNode;
 }
 
-interface IProducts {
+export interface IProducts {
     id: number;
     name: string;
     category: string;

@@ -1,7 +1,7 @@
 import { ProductContent, ProductInfo } from './styles';
 
 interface IProductData {
-    id: string;
+    id: number;
     name: string;
     category: string;
     price: number;
@@ -23,7 +23,7 @@ export const Product = ({ product, onClick }: IProductProps) => {
                 <h3>{product.name}</h3>
                 <span>{product.category}</span>
                 <span>{product.price.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}</span>
-                <button id={product.id} onClick={onClick} className='btn mediumGreen'>Adicionar</button>
+                <button id={product.id.toString()} onClick={onClick} className='btn mediumGreen'>Adicionar</button>
             </ProductInfo>
         </ProductContent>
     );
