@@ -14,7 +14,6 @@ interface IUserProps {
 interface IUserContext {
     registerRequest: (data: IRegisterForm, formReset: UseFormReset<IRegisterForm>) => Promise<void>;
     loginRequest: (formData: ILoginForm, formReset: UseFormReset<ILoginForm>) => Promise<void>;
-    navigate: NavigateFunction;
 }
 
 export const UserContext = createContext({} as IUserContext);
@@ -54,7 +53,6 @@ export const UserProvider = ({ children }: IUserProps) => {
         <UserContext.Provider value={{
             registerRequest,
             loginRequest,
-            navigate,
         }}>
             {children}
         </UserContext.Provider>
