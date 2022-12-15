@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { CartContext } from '../../contexts/CartContext';
 import { Button } from '../../styles/buttons';
 import { DefaultInput } from '../../styles/inputs';
-import { NavBar } from './styles';
+import { NavBarContainer } from './styles';
 
 import searchImage from '../../assets/search.svg';
 
@@ -11,11 +11,11 @@ interface IInputSearchProps {
     onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-export const InputSearch = ({ onClick }: IInputSearchProps) => {
+export const NavBar = ({ onClick }: IInputSearchProps) => {
     const { setFilteredProducts } = useContext(CartContext);
 
     return (
-        <NavBar>
+        <NavBarContainer>
             <li>
                 <DefaultInput
                     type='text'
@@ -25,6 +25,6 @@ export const InputSearch = ({ onClick }: IInputSearchProps) => {
                 />
                 <Button onClick={onClick} variant='mediumGreen'><img src={searchImage} /> </Button>
             </li>
-        </NavBar>
+        </NavBarContainer>
     );
 };
