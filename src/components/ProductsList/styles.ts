@@ -7,7 +7,7 @@ export const ProductsBox = styled.div`
     ul {
         display: flex;
         flex-wrap: wrap;
-        gap: 20px;
+        gap: 53px;
     }
 
     @media (max-width: 900px) {
