@@ -1,3 +1,4 @@
+import { Button } from '../../styles/buttons';
 import { ProductContent, ProductInfo } from './styles';
 
 interface IProductData {
@@ -23,7 +24,7 @@ export const Product = ({ product, onClick }: IProductProps) => {
                 <h3>{product.name}</h3>
                 <span>{product.category}</span>
                 <span>{product.price.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}</span>
-                <button id={product.id.toString()} onClick={onClick} className='btn mediumGreen'>Adicionar</button>
+                <Button id={product.id.toString()} onClick={onClick} variant='mediumGreen'>Adicionar</Button>
             </ProductInfo>
         </ProductContent>
     );

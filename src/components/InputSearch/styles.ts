@@ -12,7 +12,7 @@ export const NavBar = styled.nav`
         align-items: center;
     }
 
-    .mediumGreen {
+    button {
         position: absolute;
         right: 10px;
     }
