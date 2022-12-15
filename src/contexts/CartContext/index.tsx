@@ -27,6 +27,8 @@ interface ICartContext {
     setInputValue: React.Dispatch<React.SetStateAction<string>>;
     totalItemCart: number;
     setTotalItemCart: React.Dispatch<React.SetStateAction<number>>;
+    isOpenCart: boolean;
+    setIsOpenCart: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const CartContext = createContext({} as ICartContext);
@@ -38,6 +40,7 @@ export const CartProvider = ({ children }: ICartProps) => {
     const [currentSale, setCurrentSale] = useState([] as IProducts[]);
     const [inputValue, setInputValue] = useState('');
     const [totalItemCart, setTotalItemCart] = useState(0);
+    const [isOpenCart, setIsOpenCart] = useState(false);
 
     const navigate = useNavigate();
 
@@ -76,6 +79,8 @@ export const CartProvider = ({ children }: ICartProps) => {
             setInputValue,
             totalItemCart,
             setTotalItemCart,
+            isOpenCart,
+            setIsOpenCart,
         }}>
             {children}
         </CartContext.Provider>
