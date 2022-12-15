@@ -40,7 +40,7 @@ interface IInputSearchProps {
 }
 
 export const NavBar = ({ onClick }: IInputSearchProps) => {
-    const { setFilteredProducts } = useContext(CartContext);
+    const { setFilteredProducts, totalItemCart } = useContext(CartContext);
     const { handleLogout } = useContext(UserContext);
 
     return (
@@ -56,7 +56,7 @@ export const NavBar = ({ onClick }: IInputSearchProps) => {
             </li>
             <li>
                 <IconButton aria-label='cart' >
-                    <StyledBadge badgeContent={3} sx={{ color: CartTheme.palette.secondary.main }} color='success'>
+                    <StyledBadge badgeContent={totalItemCart} sx={{ color: CartTheme.palette.secondary.main }} color='success'>
                         <ShoppingCartIcon />
                     </StyledBadge>
                 </IconButton>
