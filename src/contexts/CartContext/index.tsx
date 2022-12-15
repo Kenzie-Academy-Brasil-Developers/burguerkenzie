@@ -25,6 +25,8 @@ interface ICartContext {
     setCurrentSale: React.Dispatch<React.SetStateAction<IProducts[]>>;
     inputValue: string;
     setInputValue: React.Dispatch<React.SetStateAction<string>>;
+    totalItemCart: number;
+    setTotalItemCart: React.Dispatch<React.SetStateAction<number>>;
 }
 
 export const CartContext = createContext({} as ICartContext);
@@ -35,6 +37,7 @@ export const CartProvider = ({ children }: ICartProps) => {
     const [filteredProducts, setFilteredProducts] = useState([] as IProducts[]);
     const [currentSale, setCurrentSale] = useState([] as IProducts[]);
     const [inputValue, setInputValue] = useState('');
+    const [totalItemCart, setTotalItemCart] = useState(0);
 
     const navigate = useNavigate();
 
@@ -45,7 +48,7 @@ export const CartProvider = ({ children }: ICartProps) => {
                     const { data } = await instance.get('/products', {
                         headers: { Authorization: `Bearer ${localStorage.userToken}` },
                     });
-                    
+
                     setProducts(data);
                 } else {
                     localStorage.clear();
@@ -71,6 +74,8 @@ export const CartProvider = ({ children }: ICartProps) => {
             setCurrentSale,
             inputValue,
             setInputValue,
+            totalItemCart,
+            setTotalItemCart,
         }}>
             {children}
         </CartContext.Provider>
