@@ -28,6 +28,7 @@
     "vercel": "^28.5.5"
   },
   "devDependencies": {
+    "@types/axios": "^0.14.0",
     "@types/react": "^18.0.26",
     "@types/react-dom": "^18.0.9",
     "@vitejs/plugin-react": "^2.2.0",
