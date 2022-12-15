@@ -1,12 +1,12 @@
-import { useContext, useEffect } from 'react';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { Branding } from '../../components/Branding';
 import { FormRegister } from '../../components/Form/FormRegister';
-import { UserContext } from '../../contexts/UserContext';
 import { UserContainer } from './styles';
 
 export const Register = () => {
-    const { navigate } = useContext(UserContext);
+    const navigate = useNavigate();
 
     useEffect(() => {
         !!localStorage.userToken && navigate('/home');
