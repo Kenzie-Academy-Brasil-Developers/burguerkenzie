@@ -21,7 +21,7 @@ export const FormRegister = () => {
         resolver: yupResolver(registerSchema),
     });
 
-    const {registerRequest } = useContext(UserContext);
+    const { registerRequest } = useContext(UserContext);
 
     const sendToApi = (data: IRegisterForm) => {
         delete data.confirmPwd;
@@ -40,7 +40,7 @@ export const FormRegister = () => {
                     variant='outlined'
                     fullWidth
                     {...register('name')}
-                    helperText={errors.name && errors.name.message}
+                    helperText={errors.name?.message}
                     error={!!errors.name}
                 />
                 <TextField
@@ -48,7 +48,7 @@ export const FormRegister = () => {
                     variant='outlined'
                     fullWidth
                     {...register('email')}
-                    helperText={errors.email && errors.email.message}
+                    helperText={errors.email?.message}
                     error={!!errors.email}
                 />
                 <TextField
@@ -57,7 +57,7 @@ export const FormRegister = () => {
                     variant='outlined'
                     fullWidth
                     {...register('password')}
-                    helperText={errors.password && errors.password.message}
+                    helperText={errors.password?.message}
                     error={!!errors.password}
                 />
                 <TextField
@@ -66,7 +66,7 @@ export const FormRegister = () => {
                     variant='outlined'
                     fullWidth
                     {...register('confirmPwd')}
-                    helperText={errors.confirmPwd && errors.confirmPwd.message}
+                    helperText={errors.confirmPwd?.message}
                     error={!!errors.confirmPwd}
                 />
                 <Button type='submit' variant='defaultGrey'>Cadastrar</Button>
