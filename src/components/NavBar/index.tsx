@@ -12,6 +12,7 @@ import IconButton from '@mui/material/IconButton';
 import { createTheme, styled } from '@mui/material/styles';
 
 import searchImage from '../../assets/search.svg';
+import { UserContext } from '../../contexts/UserContext';
 
 const CartTheme = createTheme({
     palette: {
@@ -40,6 +41,7 @@ interface IInputSearchProps {
 
 export const NavBar = ({ onClick }: IInputSearchProps) => {
     const { setFilteredProducts } = useContext(CartContext);
+    const { handleLogout } = useContext(UserContext);
 
     return (
         <NavBarContainer>
@@ -60,7 +62,7 @@ export const NavBar = ({ onClick }: IInputSearchProps) => {
                 </IconButton>
             </li>
             <li>
-                <IconButton aria-label='exit' >
+                <IconButton aria-label='exit' onClick={handleLogout} >
                     <StyledBadge sx={{ color: CartTheme.palette.secondary.main }}>
                         <LogoutTwoToneIcon />
                     </StyledBadge>
