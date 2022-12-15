@@ -6,7 +6,7 @@ import { Button, DefaultLink } from '../../../styles/buttons';
 import { registerSchema } from './registerSchema';
 import { FormContainer } from './styles';
 
-interface IRegisterForm {
+export interface IRegisterForm {
     name: string;
     email: string;
     password: string;
