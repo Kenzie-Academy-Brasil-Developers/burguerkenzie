@@ -1,6 +1,6 @@
 import { createContext } from 'react';
 import { UseFormReset } from 'react-hook-form';
-import { NavigateFunction, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 import { ILoginForm } from '../../components/Form/FormLogin';
@@ -14,6 +14,7 @@ interface IUserProps {
 interface IUserContext {
     registerRequest: (data: IRegisterForm, formReset: UseFormReset<IRegisterForm>) => Promise<void>;
     loginRequest: (formData: ILoginForm, formReset: UseFormReset<ILoginForm>) => Promise<void>;
+    handleLogout: () => void;
 }
 
 export const UserContext = createContext({} as IUserContext);
@@ -49,10 +50,16 @@ export const UserProvider = ({ children }: IUserProps) => {
         }
     };
 
+    const handleLogout = () => {
+        localStorage.clear();
+        navigate('/');
+    };
+
     return (
         <UserContext.Provider value={{
             registerRequest,
             loginRequest,
+            handleLogout,
         }}>
             {children}
         </UserContext.Provider>
