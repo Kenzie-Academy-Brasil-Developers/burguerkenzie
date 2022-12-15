@@ -66,3 +66,24 @@ export const DefaultLink = styled(Link)`
     text-decoration-line: underline;
     color: var(--color-grey-50);
 `;
+
+export const SecondaryLink = styled(Link)`
+    display: grid;
+    place-items: center;
+    background-color: var(--color-grey-20);
+    font-family: var(--font-family-1);
+    color: var(--color-grey-50);
+    font-weight: 600;
+    font-size: 1rem;
+    height: 3.75rem;
+    padding: 0 1.25rem;
+    border-radius: .5rem;
+    border: none;
+    cursor: pointer;
+    transition: all .3s;
+
+    &:hover {
+        background-color: var(--color-grey-50);
+        color: var(--color-grey-20);
+    }
+`;
