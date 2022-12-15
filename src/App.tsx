@@ -1,9 +1,9 @@
 import { ToastContainer } from 'react-toastify';
 
+import { UserProvider } from './contexts/UserContext';
 import { MainRoutes as Routes } from './routes';
 
 import 'react-toastify/dist/ReactToastify.min.css';
-import { UserProvider } from './contexts/UserContext/indesx';
 
 function App() {
 
