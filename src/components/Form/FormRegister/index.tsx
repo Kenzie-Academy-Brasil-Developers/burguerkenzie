@@ -10,10 +10,10 @@ export const FormRegister = () => {
                 <DefaultLink to='/'>Retornar para o login</DefaultLink>
             </div>
             <form noValidate>
-                <TextField id="outlined-basic" label="Nome" variant="outlined" fullWidth />
-                <TextField id="outlined-basic" label="Email" variant="outlined" fullWidth />
-                <TextField id="outlined-basic" label="Senha" variant="outlined" fullWidth />
-                <TextField id="outlined-basic" label="Confirmar Senha" variant="outlined" fullWidth />
+                <TextField label="Nome" variant="outlined" fullWidth />
+                <TextField label="Email" variant="outlined" fullWidth />
+                <TextField type='password' label="Senha" variant="outlined" fullWidth />
+                <TextField type='password' label="Confirmar Senha" variant="outlined" fullWidth />
                 <Button type='submit' variant='defaultGrey'>Cadastrar</Button>
             </form>
         </FormContainer>
