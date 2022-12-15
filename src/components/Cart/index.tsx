@@ -6,10 +6,11 @@ import { CartTotal } from '../CartTotal';
 import { CartBox, CartContent, CartHeader } from './styles';
 
 export const Cart = () => {
-    const { currentSale, setCurrentSale } = useContext(CartContext);
+    const { currentSale, setCurrentSale, setTotalItemCart } = useContext(CartContext);
 
     const removeProduct = (e: React.MouseEvent<HTMLButtonElement>) => {
         const newList = currentSale.filter((elem) => parseInt(e.currentTarget.id) !== elem.id);
+        setTotalItemCart((old) => old - 1);
         setCurrentSale([...newList]);
     };
 
