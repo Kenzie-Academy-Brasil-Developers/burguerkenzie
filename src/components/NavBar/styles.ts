@@ -1,9 +1,7 @@
 import styled from 'styled-components';
 
 export const NavBarContainer = styled.nav`
-    width: 100%;
     display: flex;
-    justify-content: flex-end;
     align-items: center;
     gap: 15px;
 
