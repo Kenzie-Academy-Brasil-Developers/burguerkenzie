@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 export const HeaderContainer = styled.div`
+    display: flex;
+    justify-content: space-between;
     background-color: var(--color-grey-0);
     margin-bottom: 26px;
     height: max-content;
@@ -14,12 +16,9 @@ export const HeaderContainer = styled.div`
     }
 
     @media (max-width: 700px) {
-        div {
-            margin-top: 10px;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 14px;
+        input,
+        input + button {
+            display: none;
         }
     }
 `;
