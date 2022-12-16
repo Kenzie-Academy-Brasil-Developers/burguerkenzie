@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect, useRef } from 'react';
 
 import { CartContext } from '../../contexts/CartContext';
 import { CartProduct } from '../CartProduct';
@@ -10,6 +10,7 @@ import { IconButton } from '@mui/material';
 
 export const Cart = () => {
     const { currentSale, setCurrentSale, setTotalItemCart, setIsOpenCart } = useContext(CartContext);
+    const modalRef = useRef(null);
 
     const removeProduct = (e: React.MouseEvent<HTMLButtonElement>) => {
         const newList = currentSale.filter((elem) => parseInt(e.currentTarget.id) !== elem.id);
@@ -17,8 +18,21 @@ export const Cart = () => {
         setCurrentSale([...newList]);
     };
 
+    useEffect(() => {
+        const modalOutClick = (e: MouseEvent) => {
+            const target = e.target as HTMLDivElement;
+            const element = modalRef.current;
+            
+            if (target.contains(element)) {
+                setIsOpenCart(false);
+            }
+        };
+        window.addEventListener('mousedown', modalOutClick);
+        return () => window.removeEventListener('mousedown', modalOutClick);
+    }, []);
+
     return (
-        <CartBox>
+        <CartBox ref={modalRef}>
             <div>
                 <CartHeader>
                     <h3>Carrinho de compras</h3>
