@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 
 import logo from '../../assets/mainLogo.svg';
 import { CartContext } from '../../contexts/CartContext';
-import { InputSearch } from '../InputSearch';
+import { NavBar } from '../NavBar';
 import { HeaderContainer } from './styles';
 
 export const Header = () => {
@@ -27,7 +27,7 @@ export const Header = () => {
         <HeaderContainer>
             <div className='container'>
                 <img draggable='false' src={logo} alt='Burguer Kenzie' />
-                <InputSearch onClick={handleInput} />
+                <NavBar onClick={handleInput} />
             </div>
         </HeaderContainer>
     );

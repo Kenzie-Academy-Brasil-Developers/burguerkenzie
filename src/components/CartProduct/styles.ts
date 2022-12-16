@@ -45,7 +45,7 @@ export const ProductContent = styled.li`
     }
 
     .product-info button {
-        margin-top: 4.4px;
+        margin-top: 4px;
         font-weight: 500;
         font-size: .625rem;
         line-height: .75rem; 
@@ -54,10 +54,10 @@ export const ProductContent = styled.li`
         background: transparent;
         border: none;
         cursor: pointer;
+        transition: all .3s;
     }
 
     .product-info button:hover {
         color: var(--color-grey-100);
-        text-decoration-line: underline;
     }
 `;

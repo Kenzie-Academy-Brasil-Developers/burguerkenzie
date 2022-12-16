@@ -1,18 +1,20 @@
 import styled from 'styled-components';
 
-export const NavBar = styled.nav`
+export const NavBarContainer = styled.nav`
     width: 100%;
     display: flex;
     justify-content: flex-end;
+    align-items: center;
+    gap: 15px;
 
-    li {
+    li:nth-child(1) {
         position: relative;
         width: max-content;
         display: flex;
         align-items: center;
     }
 
-    button {
+    button:nth-child(2) {
         position: absolute;
         right: 10px;
     }

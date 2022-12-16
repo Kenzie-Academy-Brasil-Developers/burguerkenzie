@@ -3,7 +3,8 @@ import styled from 'styled-components';
 export const FormLoginContainer = styled.section`
     display: flex;
     flex-direction: column;
-    width: 500px;
+    width: 100%;
+    max-width: 500px;
     border: 2px solid var(--color-grey-0);
     border-radius: 5px;
     padding: 2.0625rem 1.5rem 1.75rem;

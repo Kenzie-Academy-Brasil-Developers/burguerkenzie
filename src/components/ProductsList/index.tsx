@@ -7,14 +7,23 @@ import { Product } from '../Product';
 import { FilterTools, ProductsBox } from './styles';
 
 export const ProductsList = () => {
-    const { products: data, currentSale, setCurrentSale, setFilteredProducts, filteredProducts, inputValue } = useContext(CartContext);
+    const {
+        products: data,
+        currentSale,
+        setCurrentSale,
+        setFilteredProducts,
+        filteredProducts,
+        inputValue,
+        setTotalItemCart,
+    } = useContext(CartContext);
 
     const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
         let obj: IProducts | null = data.find(({ id }) => parseInt(e.currentTarget.id) === id) || null;
 
         if (!currentSale.find((elem) => parseInt(e.currentTarget.id) === elem.id)) {
-            if(obj !== null) {
+            if (obj !== null) {
                 toast.success(`${obj.name} foi adicionado ao carrinho`, { autoClose: 800 });
+                setTotalItemCart((old) => old + 1)
                 setCurrentSale([...currentSale, obj]);
             }
         } else {

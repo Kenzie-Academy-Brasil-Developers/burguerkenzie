@@ -5,37 +5,43 @@ interface ICartContentProps {
     heightSize: string;
 }
 
-export const CartBox = styled.aside`
-    width: 100%;
-    max-width: 325px;
-    height: max-content;
+export const CartBox = styled.section`
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(51, 51, 51, 0.5);
+    inset: 0;
+    display: flex;
+    justify-content: center;
 
-    @media (max-width: 900px) {
-        max-width: 100%;
-
-        .product-info {
-            width: 90%;
-        }
+    & > div {
+        width: 100%;
+        max-width: 430px;
+        height: max-content;
+        margin: 80px 15px 0;
     }
 `;
 
 export const CartHeader = styled.div`
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
     background-color: var(--color-primary);
     border-radius: .3125rem .3125rem 0 0;
-    padding-left: 20px;
-    height: 65px;
+    padding: 0 10px 0 20px;
+    height: 52px;
     width: 100%;
-    font-weight: 700;
-    font-size: 1.125rem;
-    line-height: 1.5rem;
-    color: var(--color-white);
+
+    & > h3 {
+        font-weight: 700;
+        font-size: 1.125rem;
+        line-height: 1.5rem;
+        color: var(--color-white);
+    }
 `;
 
 export const CartContent = styled.div<ICartContentProps>`
-    height: ${({heightSize}) => heightSize};
+    height: ${({ heightSize }) => heightSize};
     background-color: var(--color-grey-0);
     border-radius: 0 0 5px 5px;
     display: flex;

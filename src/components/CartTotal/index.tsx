@@ -5,7 +5,7 @@ import { Button } from '../../styles/buttons';
 import { FooterStyled } from './styles';
 
 export const CartTotal = () => {
-  const { currentSale, setCurrentSale } = useContext(CartContext);
+  const { currentSale, setCurrentSale, setTotalItemCart } = useContext(CartContext);
 
   return (
     <FooterStyled>
@@ -14,7 +14,11 @@ export const CartTotal = () => {
         <span>{currentSale.reduce((acc: number, cur: { price: number; }) => acc + cur.price, 0)
           .toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}</span>
       </div>
-      <Button onClick={() => setCurrentSale([])} variant='defaultGrey'>Remover todos</Button>
+      <Button onClick={() => {
+        setCurrentSale([]);
+        setTotalItemCart(0);
+      }}
+        variant='defaultGrey'>Remover todos</Button>
     </FooterStyled>
   );
 };
