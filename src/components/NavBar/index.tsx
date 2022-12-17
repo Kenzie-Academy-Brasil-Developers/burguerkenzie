@@ -45,14 +45,14 @@ export const NavBar = ({ onClick }: IInputSearchProps) => {
                 <ExpandInput />
             </li>
             <li>
-                <IconButton aria-label='cart' onClick={() => setIsOpenCart(true)} >
+                <IconButton className='to-toggle' aria-label='cart' onClick={() => setIsOpenCart(true)} >
                     <StyledBadge badgeContent={totalItemCart} sx={{ color: CartTheme.palette.secondary.main }} color='success'>
                         <ShoppingCartIcon />
                     </StyledBadge>
                 </IconButton>
             </li>
             <li>
-                <IconButton aria-label='exit' onClick={handleLogout} >
+                <IconButton className='to-toggle' aria-label='exit' onClick={handleLogout} >
                     <StyledBadge sx={{ color: CartTheme.palette.secondary.main }}>
                         <LogoutTwoToneIcon />
                     </StyledBadge>
