@@ -9,5 +9,11 @@ export const InputContainer = styled.div<IInputProps>`
     transition: .8s cubic-bezier(.47, .4, .175, 1.2);
 
     & > div {
+        width: ${({ isExpanded }) => isExpanded ? '100%' : '15%'};
+        transition: .8s cubic-bezier(.47, .4, .175, 1.2);
+    }
+
+    input {
+        padding-right: 48px;
     }
 `;
