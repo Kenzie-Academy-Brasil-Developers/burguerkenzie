@@ -10,7 +10,10 @@ export const ExpandInput = () => {
     useEffect(() => {
         const handleClick = (event: MouseEvent) => {
             const target = event.target as HTMLElement;
-            if (target.id !== 'outlined-full-width' && target.id !== 'search-icon' && target.id !== 'search-box') {
+            if (target.id !== 'outlined-full-width'
+                && target.id !== 'search-icon'
+                && target.id !== 'search-box'
+                && target.tagName !== 'path') {
                 setIsExpanded(false);
             }
         };
