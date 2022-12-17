@@ -1,15 +1,11 @@
 import SearchIcon from '@mui/icons-material/Search';
 import { IconButton, InputAdornment } from '@mui/material';
-import { useContext, useEffect } from 'react';
-import { useForm } from 'react-hook-form/dist/useForm';
+import { ChangeEvent, useContext, useEffect } from 'react';
 import { CartContext } from '../../contexts/CartContext';
 import { InputContainer, TextField } from './styles';
 
 export const ExpandInput = () => {
     const { isExpanded, setIsExpanded } = useContext(CartContext);
-    const { register, handleSubmit, formState: { errors }, reset } = useForm({
-        mode: 'onSubmit',
-    });
 
     useEffect(() => {
         const handleClick = (event: MouseEvent) => {
@@ -21,14 +17,17 @@ export const ExpandInput = () => {
                 setIsExpanded(false);
             }
         };
-        document.addEventListener('click', handleClick);
+        document.addEventListener('mousedown', handleClick);
         return () => {
-            document.removeEventListener('click', handleClick);
+            document.removeEventListener('mousedown', handleClick);
         };
     }, []);
 
     return (
-        <InputContainer isExpanded={isExpanded}>
+        <InputContainer isExpanded={isExpanded}
+            onChange={(e: ChangeEvent<HTMLFormElement>) => console.dir(e.target.value)}
+            onSubmit={(e) => e.preventDefault()}
+        >
             <div>
                 <TextField
                     id='outlined-full-width'
