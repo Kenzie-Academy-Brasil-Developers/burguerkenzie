@@ -1,10 +1,11 @@
 import SearchIcon from '@mui/icons-material/Search';
 import { IconButton, InputAdornment } from '@mui/material';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
+import { CartContext } from '../../contexts/CartContext';
 import { InputContainer, TextField } from './styles';
 
 export const ExpandInput = () => {
-    const [isExpanded, setIsExpanded] = useState(false);
+    const { isExpanded, setIsExpanded } = useContext(CartContext);
 
     useEffect(() => {
         const handleClick = (event: MouseEvent) => {
