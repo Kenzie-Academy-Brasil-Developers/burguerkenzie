@@ -28,6 +28,14 @@ export const InputContainer = styled.div<IInputProps>`
         right: 35px;
         color: #BDBDBD;
     }
+
+    @media (max-width: 488px) {
+        width: ${({ isExpanded }) => isExpanded ? '200px' : '35px'};
+    }
+
+    @media (max-width: 410px) {
+        width: ${({ isExpanded }) => isExpanded ? '140px' : '35px'};
+    }
 `;
 
 export const TextField = styled(Input) <IInputProps>`
