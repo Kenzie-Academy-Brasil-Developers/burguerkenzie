@@ -30,8 +30,8 @@ export const FormLogin = () => {
             </div>
             <form noValidate onSubmit={handleSubmit(sendToApi)}>
                 <TextField
-                    label="Email"
-                    variant="outlined"
+                    label='Email'
+                    variant='outlined'
                     fullWidth
                     {...register('email')}
                     helperText={errors.email?.message}
@@ -39,8 +39,8 @@ export const FormLogin = () => {
                 />
                 <TextField
                     type='password'
-                    label="Senha"
-                    variant="outlined"
+                    label='Senha'
+                    variant='outlined'
                     fullWidth
                     {...register('password')}
                     helperText={errors.password?.message}

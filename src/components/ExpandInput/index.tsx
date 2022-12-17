@@ -23,13 +23,13 @@ export const ExpandInput = () => {
         <InputContainer isExpanded={isExpanded}>
             <div>
                 <TextField
-                    id="outlined-full-width"
+                    id='outlined-full-width'
                     isExpanded={isExpanded}
-                    placeholder="Buscar"
+                    placeholder='Buscar'
                     fullWidth
-                    variant="outlined"
+                    variant='outlined'
                 />
-                <InputAdornment position="start" >
+                <InputAdornment position='start' >
                     <IconButton id='search-box' onClick={() => setIsExpanded(!isExpanded)}>
                         <SearchIcon id='search-icon' />
                     </IconButton>
