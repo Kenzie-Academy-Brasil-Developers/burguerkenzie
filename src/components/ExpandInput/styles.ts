@@ -37,7 +37,3 @@ export const TextField = styled(Input) <IInputProps>`
     opacity: ${({ isExpanded }) => isExpanded ? '1' : '0'};
     transition: .8s cubic-bezier(.47, .4, .175, 1.2);
 `;
-
-export const IconButton = styled(IButton) <IInputProps>`
-
-`;
