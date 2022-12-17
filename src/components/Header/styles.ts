@@ -14,11 +14,4 @@ export const HeaderContainer = styled.div`
         align-items: center;
         height: 100%;
     }
-
-    @media (max-width: 700px) {
-        input,
-        input + button {
-            display: none;
-        }
-    }
 `;
