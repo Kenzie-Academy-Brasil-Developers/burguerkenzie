@@ -70,6 +70,21 @@ export const CartProvider = ({ children }: ICartProps) => {
         fetchProducts();
     }, []);
 
+    const handleSearch = (data) => {
+        // const inputValue = e.target.previousSibling.value.toLowerCase();
+        console.log(data)
+
+        if (inputValue.length) {
+            const filteredList = products.filter((elem) => elem.name.toLowerCase().includes(inputValue));
+            setFilteredProducts([...filteredList]);
+            setInputValue(inputValue.charAt(0).toUpperCase() + inputValue.slice(1));
+
+            if (!filteredList.length) {
+                toast.error('Nenhum produto foi encontrado');
+            }
+        }
+    };
+
     return (
         <CartContext.Provider value={{
             products,

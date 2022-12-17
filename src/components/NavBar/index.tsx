@@ -31,12 +31,8 @@ const StyledBadge = styled(Badge)<BadgeProps>(({ theme }) => ({
     },
 }));
 
-interface IInputSearchProps {
-    onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
-}
-
-export const NavBar = ({ onClick }: IInputSearchProps) => {
-    const { setFilteredProducts, totalItemCart, setIsOpenCart, isExpanded } = useContext(CartContext);
+export const NavBar = () => {
+    const { totalItemCart, setIsOpenCart, isExpanded } = useContext(CartContext);
     const { handleLogout } = useContext(UserContext);
 
     return (

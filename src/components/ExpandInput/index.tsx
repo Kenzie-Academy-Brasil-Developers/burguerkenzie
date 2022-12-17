@@ -1,11 +1,15 @@
 import SearchIcon from '@mui/icons-material/Search';
 import { IconButton, InputAdornment } from '@mui/material';
 import { useContext, useEffect } from 'react';
+import { useForm } from 'react-hook-form/dist/useForm';
 import { CartContext } from '../../contexts/CartContext';
 import { InputContainer, TextField } from './styles';
 
 export const ExpandInput = () => {
     const { isExpanded, setIsExpanded } = useContext(CartContext);
+    const { register, handleSubmit, formState: { errors }, reset } = useForm({
+        mode: 'onSubmit',
+    });
 
     useEffect(() => {
         const handleClick = (event: MouseEvent) => {
