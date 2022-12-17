@@ -1,15 +1,7 @@
 import SearchIcon from '@mui/icons-material/Search';
-import { createTheme, IconButton, InputAdornment } from '@mui/material';
+import { IconButton, InputAdornment } from '@mui/material';
 import { useEffect, useState } from 'react';
-import { Input, InputContainer } from './styles';
-
-const CartTheme = createTheme({
-    palette: {
-        primary: {
-            main: '#BDBDBD',
-        }
-    },
-});
+import { InputContainer, TextField } from './styles';
 
 export const ExpandInput = () => {
     const [isExpanded, setIsExpanded] = useState(false);
@@ -30,7 +22,7 @@ export const ExpandInput = () => {
     return (
         <InputContainer isExpanded={isExpanded}>
             <div>
-                <Input
+                <TextField
                     id="outlined-full-width"
                     isExpanded={isExpanded}
                     placeholder="Buscar"
@@ -38,7 +30,7 @@ export const ExpandInput = () => {
                     variant="outlined"
                 />
                 <InputAdornment position="start" >
-                    <IconButton id='search-box' style={{ position: isExpanded ? 'absolute' : 'static', pointerEvents: isExpanded ? 'none' : 'auto' }} onClick={() => setIsExpanded(!isExpanded)}>
+                    <IconButton id='search-box' onClick={() => setIsExpanded(!isExpanded)}>
                         <SearchIcon id='search-icon' style={{ position: isExpanded ? 'absolute' : 'static', right: '35px', color: '#BDBDBD' }} />
                     </IconButton>
                 </InputAdornment>
