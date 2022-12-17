@@ -5,7 +5,7 @@ import { CartContext } from '../../contexts/CartContext';
 import { InputContainer, TextField } from './styles';
 
 export const ExpandInput = () => {
-    const { isExpanded, setIsExpanded, setInputValue, isError } = useContext(CartContext);
+    const { isExpanded, setIsExpanded, setInputValue, isError, inputValue } = useContext(CartContext);
 
     useEffect(() => {
         const handleClick = (event: MouseEvent) => {
@@ -36,6 +36,7 @@ export const ExpandInput = () => {
                     fullWidth
                     variant='outlined'
                     error={isError}
+                    value={inputValue}
                 />
                 <InputAdornment position='start' >
                     <IconButton id='search-box' onClick={() => setIsExpanded(!isExpanded)}>
