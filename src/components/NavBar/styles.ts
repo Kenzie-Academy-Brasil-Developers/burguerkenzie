@@ -16,7 +16,7 @@ export const NavBarContainer = styled.nav<INavBarProps>`
 
     @media (max-width: 580px) {
         .to-toggle {
-            display: none;
+            display: ${({ isExpanded }) => isExpanded ? 'none' : 'block'};
         }
     }
-`;
+`;;
