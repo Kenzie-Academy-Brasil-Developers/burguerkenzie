@@ -36,11 +36,11 @@ interface IInputSearchProps {
 }
 
 export const NavBar = ({ onClick }: IInputSearchProps) => {
-    const { setFilteredProducts, totalItemCart, setIsOpenCart } = useContext(CartContext);
+    const { setFilteredProducts, totalItemCart, setIsOpenCart, isExpanded } = useContext(CartContext);
     const { handleLogout } = useContext(UserContext);
 
     return (
-        <NavBarContainer>
+        <NavBarContainer isExpanded={isExpanded}>
             <li>
                 <ExpandInput />
             </li>
