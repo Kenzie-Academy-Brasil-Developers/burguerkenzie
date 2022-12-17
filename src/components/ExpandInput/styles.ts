@@ -22,6 +22,12 @@ export const InputContainer = styled.div<IInputProps>`
         position: ${({ isExpanded }) => isExpanded ? 'absolute' : 'static'};
         pointer-events: ${({ isExpanded }) => isExpanded ? 'none' : 'auto'};
     }
+
+    #search-icon {
+        position: ${({ isExpanded }) => isExpanded ? 'absolute' : 'static'};
+        right: 35px;
+        color: #BDBDBD;
+    }
 `;
 
 export const TextField = styled(Input) <IInputProps>`
