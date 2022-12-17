@@ -31,7 +31,7 @@ export const ExpandInput = () => {
                 />
                 <InputAdornment position="start" >
                     <IconButton id='search-box' onClick={() => setIsExpanded(!isExpanded)}>
-                        <SearchIcon id='search-icon' style={{ position: isExpanded ? 'absolute' : 'static', right: '35px', color: '#BDBDBD' }} />
+                        <SearchIcon id='search-icon' />
                     </IconButton>
                 </InputAdornment>
             </div>
