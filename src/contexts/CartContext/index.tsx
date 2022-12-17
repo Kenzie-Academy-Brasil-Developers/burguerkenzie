@@ -29,6 +29,8 @@ interface ICartContext {
     setTotalItemCart: React.Dispatch<React.SetStateAction<number>>;
     isOpenCart: boolean;
     setIsOpenCart: React.Dispatch<React.SetStateAction<boolean>>;
+    isExpanded: boolean;
+    setIsExpanded: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const CartContext = createContext({} as ICartContext);
@@ -41,6 +43,7 @@ export const CartProvider = ({ children }: ICartProps) => {
     const [inputValue, setInputValue] = useState('');
     const [totalItemCart, setTotalItemCart] = useState(0);
     const [isOpenCart, setIsOpenCart] = useState(false);
+    const [isExpanded, setIsExpanded] = useState(false);
 
     const navigate = useNavigate();
 
@@ -81,6 +84,8 @@ export const CartProvider = ({ children }: ICartProps) => {
             setTotalItemCart,
             isOpenCart,
             setIsOpenCart,
+            isExpanded,
+            setIsExpanded,
         }}>
             {children}
         </CartContext.Provider>
