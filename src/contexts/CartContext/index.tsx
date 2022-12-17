@@ -29,6 +29,10 @@ interface ICartContext {
     setTotalItemCart: React.Dispatch<React.SetStateAction<number>>;
     isOpenCart: boolean;
     setIsOpenCart: React.Dispatch<React.SetStateAction<boolean>>;
+    isExpanded: boolean;
+    setIsExpanded: React.Dispatch<React.SetStateAction<boolean>>;
+    isError: boolean;
+    setIsError: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const CartContext = createContext({} as ICartContext);
@@ -41,6 +45,8 @@ export const CartProvider = ({ children }: ICartProps) => {
     const [inputValue, setInputValue] = useState('');
     const [totalItemCart, setTotalItemCart] = useState(0);
     const [isOpenCart, setIsOpenCart] = useState(false);
+    const [isExpanded, setIsExpanded] = useState(false);
+    const [isError, setIsError] = useState(false);
 
     const navigate = useNavigate();
 
@@ -67,6 +73,28 @@ export const CartProvider = ({ children }: ICartProps) => {
         fetchProducts();
     }, []);
 
+
+    useEffect(() => {
+        const handleSearch = () => {
+            const searchValue = inputValue.toLowerCase();
+
+            if (searchValue.length) {
+                const filteredList = products.filter((elem) => elem.name.toLowerCase().includes(searchValue));
+                setFilteredProducts([...filteredList]);
+                setInputValue(searchValue.charAt(0).toUpperCase() + searchValue.slice(1));
+                setIsError(false);
+
+                if (!filteredList.length) {
+                    setIsError(true);
+                }
+
+            } else {
+                setFilteredProducts([]);
+            }
+        };
+        handleSearch();
+    }, [inputValue]);
+
     return (
         <CartContext.Provider value={{
             products,
@@ -81,6 +109,10 @@ export const CartProvider = ({ children }: ICartProps) => {
             setTotalItemCart,
             isOpenCart,
             setIsOpenCart,
+            isExpanded,
+            setIsExpanded,
+            isError,
+            setIsError,
         }}>
             {children}
         </CartContext.Provider>

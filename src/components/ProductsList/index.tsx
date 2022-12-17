@@ -14,6 +14,7 @@ export const ProductsList = () => {
         setFilteredProducts,
         filteredProducts,
         inputValue,
+        setInputValue,
         setTotalItemCart,
     } = useContext(CartContext);
 
@@ -23,7 +24,7 @@ export const ProductsList = () => {
         if (!currentSale.find((elem) => parseInt(e.currentTarget.id) === elem.id)) {
             if (obj !== null) {
                 toast.success(`${obj.name} foi adicionado ao carrinho`, { autoClose: 800 });
-                setTotalItemCart((old) => old + 1)
+                setTotalItemCart((old) => old + 1);
                 setCurrentSale([...currentSale, obj]);
             }
         } else {
@@ -43,7 +44,10 @@ export const ProductsList = () => {
                         <span>{inputValue}</span>
                     </div>
                     <Button
-                        onClick={(e) => !e.currentTarget.value.length && setFilteredProducts([])}
+                        onClick={(e) => {
+                            setInputValue('');
+                            !e.currentTarget.value.length && setFilteredProducts([]);
+                        }}
                         variant='mediumGreen'
                     >Limpar busca</Button>
                 </FilterTools>}
