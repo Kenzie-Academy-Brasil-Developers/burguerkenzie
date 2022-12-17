@@ -29,7 +29,7 @@ export const ExpandInput = () => {
 
     return (
         <InputContainer isExpanded={isExpanded}>
-            <div style={{ display: 'flex', alignItems: 'center', width: isExpanded ? '100%' : '15%', transition: 'all .8s cubic-bezier(.47, .4, .175, 1.2)' }}>
+            <div>
                 <TextField
                     id="outlined-full-width"
                     style={{
