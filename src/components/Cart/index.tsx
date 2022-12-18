@@ -9,14 +9,8 @@ import CloseTwoToneIcon from '@mui/icons-material/CloseTwoTone';
 import { IconButton } from '@mui/material';
 
 export const Cart = () => {
-    const { currentSale, setCurrentSale, setTotalItemCart, setIsOpenCart } = useContext(CartContext);
+    const { currentSale, setIsOpenCart } = useContext(CartContext);
     const modalRef = useRef(null);
-
-    const removeProduct = (e: React.MouseEvent<HTMLButtonElement>) => {
-        const newList = currentSale.filter((elem) => parseInt(e.currentTarget.id) !== elem.id);
-        setTotalItemCart((old) => old - 1);
-        setCurrentSale([...newList]);
-    };
 
     useEffect(() => {
         const modalOutClick = (e: MouseEvent) => {
@@ -57,7 +51,6 @@ export const Cart = () => {
                                 return (
                                     <CartProduct
                                         data={product}
-                                        onClick={removeProduct}
                                         key={product.id}
                                     />
                                 );
