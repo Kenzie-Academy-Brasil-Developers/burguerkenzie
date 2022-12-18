@@ -92,7 +92,7 @@ export const CartProvider = ({ children }: ICartProps) => {
             } else {
                 setFilteredProducts([]);
             }
-        };
+        }
         handleSearch();
     }, [inputValue]);
        
