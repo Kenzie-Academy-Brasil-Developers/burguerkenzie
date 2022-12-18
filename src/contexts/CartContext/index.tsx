@@ -33,6 +33,7 @@ interface ICartContext {
     setIsExpanded: React.Dispatch<React.SetStateAction<boolean>>;
     isError: boolean;
     setIsError: React.Dispatch<React.SetStateAction<boolean>>;
+    removeProduct: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 export const CartContext = createContext({} as ICartContext);
@@ -91,9 +92,15 @@ export const CartProvider = ({ children }: ICartProps) => {
             } else {
                 setFilteredProducts([]);
             }
-        };
+        }
         handleSearch();
     }, [inputValue]);
+       
+    const removeProduct = (e: React.MouseEvent<HTMLButtonElement>) => {
+        const newList = currentSale.filter((elem) => parseInt(e.currentTarget.id) !== elem.id);
+        setTotalItemCart((old) => old - 1);
+        setCurrentSale([...newList]);
+    };
 
     return (
         <CartContext.Provider value={{
@@ -113,6 +120,7 @@ export const CartProvider = ({ children }: ICartProps) => {
             setIsExpanded,
             isError,
             setIsError,
+            removeProduct,
         }}>
             {children}
         </CartContext.Provider>
