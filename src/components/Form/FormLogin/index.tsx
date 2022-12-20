@@ -1,10 +1,11 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import { TextField } from '@mui/material';
+import { Button, TextField } from '@mui/material';
 import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 
 import { UserContext } from '../../../contexts/UserContext';
-import { Button, SecondaryLink } from '../../../styles/buttons';
+import { SecondaryLink } from '../../../styles/buttons';
 import { loginSchema } from './loginSchema';
 import { FormLoginContainer } from './styles';
 
@@ -14,6 +15,7 @@ export interface ILoginForm {
 }
 
 export const FormLogin = () => {
+    const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors }, reset } = useForm<ILoginForm>({
         mode: 'onChange',
         resolver: yupResolver(loginSchema)
@@ -46,10 +48,19 @@ export const FormLogin = () => {
                     helperText={errors.password?.message}
                     error={!!errors.password}
                 />
-                <Button type='submit' variant='defaultGreen'>Logar</Button>
+                <Button type='submit' variant='contained' size='large' color='primary'>Logar</Button>
             </form>
             <p>Crie sua conta para saborear muitas delícias e matar sua fome!</p>
-            <SecondaryLink to='/register'>Cadastrar</SecondaryLink>
+            <Button 
+            type='button' 
+            variant='contained' 
+            size='large' 
+            color='secondary'
+            sx={{
+                '&:hover': { color: '#fff' }
+            }}
+            onClick={() => navigate('/register')} 
+            >Cadastrar</Button>
         </FormLoginContainer>
     );
 };
