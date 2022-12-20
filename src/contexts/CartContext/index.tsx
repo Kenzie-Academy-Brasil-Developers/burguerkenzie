@@ -59,7 +59,21 @@ export const CartProvider = ({ children }: ICartProps) => {
                         headers: { Authorization: `Bearer ${localStorage.userToken}` },
                     });
 
-                    setProducts(data);
+                    setProducts([...data, {
+                        id: 7,
+                        name: 'Combo Kenzie',
+                        category: 'Combos',
+                        price: 26,
+                        img: 'https://i.imgur.com/cvtrX0X.png',
+                    },
+                    {
+                        id: 8,
+                        name: 'McShake Ovomaltine',
+                        category: 'Sobremesas',
+                        price: 10,
+                        img: 'https://i.imgur.com/bEhVzfU.png',
+                    }
+                    ]);
                 } else {
                     localStorage.clear();
                     navigate('/');
@@ -92,10 +106,10 @@ export const CartProvider = ({ children }: ICartProps) => {
             } else {
                 setFilteredProducts([]);
             }
-        }
+        };
         handleSearch();
     }, [inputValue]);
-       
+
     const removeProduct = (e: React.MouseEvent<HTMLButtonElement>) => {
         const newList = currentSale.filter((elem) => parseInt(e.currentTarget.id) !== elem.id);
         setTotalItemCart((old) => old - 1);
