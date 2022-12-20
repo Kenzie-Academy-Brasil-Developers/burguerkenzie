@@ -1,10 +1,10 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import { TextField } from '@mui/material';
+import { Button, TextField } from '@mui/material';
 import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 
 import { UserContext } from '../../../contexts/UserContext';
-import { Button, DefaultLink } from '../../../styles/buttons';
+import { DefaultLink } from '../../../styles/buttons';
 import { registerSchema } from './registerSchema';
 import { FormContainer } from './styles';
 
@@ -69,7 +69,7 @@ export const FormRegister = () => {
                     helperText={errors.confirmPwd?.message}
                     error={!!errors.confirmPwd}
                 />
-                <Button type='submit' variant='defaultGrey'>Cadastrar</Button>
+                <Button type='submit' variant='contained' size='large' color='primary'>Cadastrar</Button>
             </form>
         </FormContainer>
     );
