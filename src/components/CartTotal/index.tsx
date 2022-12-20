@@ -1,7 +1,7 @@
+import { Button } from '@mui/material';
 import { useContext } from 'react';
 
 import { CartContext } from '../../contexts/CartContext';
-import { Button } from '../../styles/buttons';
 import { FooterStyled } from './styles';
 
 export const CartTotal = () => {
@@ -18,7 +18,13 @@ export const CartTotal = () => {
         setCurrentSale([]);
         setTotalItemCart(0);
       }}
-        variant='defaultGrey'>Remover todos</Button>
+        variant='contained'
+        size='large'
+        color='secondary'
+        sx={{
+          '&:hover': { color: '#fff' }
+      }}
+      >Remover todos</Button>
     </FooterStyled>
   );
 };

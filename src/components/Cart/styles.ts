@@ -43,7 +43,6 @@ export const CartHeader = styled.div`
 export const CartContent = styled.div<ICartContentProps>`
     height: ${({ heightSize }) => heightSize};
     background-color: var(--color-grey-0);
-    border-radius: 0 0 5px 5px;
     display: flex;
     flex-direction: column;
     align-items: center;

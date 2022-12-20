@@ -1,4 +1,4 @@
-import { Button } from '../../styles/buttons';
+import { Button } from '@mui/material';
 import { ProductContent, ProductInfo } from './styles';
 
 interface IProductData {
@@ -24,7 +24,13 @@ export const Product = ({ product, onClick }: IProductProps) => {
                 <h3>{product.name}</h3>
                 <span>{product.category}</span>
                 <span>{product.price.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}</span>
-                <Button id={product.id.toString()} onClick={onClick} variant='mediumGreen'>Adicionar</Button>
+                <Button
+                    id={product.id.toString()}
+                    onClick={onClick}
+                    variant='contained'
+                    size='small'
+                    color='primary'
+                >Adicionar</Button>
             </ProductInfo>
         </ProductContent>
     );
