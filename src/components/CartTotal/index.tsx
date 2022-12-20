@@ -21,6 +21,9 @@ export const CartTotal = () => {
         variant='contained'
         size='large'
         color='secondary'
+        sx={{
+          '&:hover': { color: '#fff' }
+      }}
       >Remover todos</Button>
     </FooterStyled>
   );
