@@ -6,11 +6,13 @@ export const LightTheme = createTheme({
             main: '#27AE60',
             dark: '#219653',
             light: '#93D7AF',
+            contrastText: '#F5F5F5',
         },
         secondary: {
-            main: '#828282',
-            dark: '#333333',
-            light: '#E0E0E0', 
+            main: '#E0E0E0', 
+            dark: '#828282',
+            light: '#F5F5F5',
+            contrastText: '#828282',
         }
     }
 });
