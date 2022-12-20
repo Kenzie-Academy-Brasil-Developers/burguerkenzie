@@ -5,7 +5,6 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 
 import { UserContext } from '../../../contexts/UserContext';
-import { SecondaryLink } from '../../../styles/buttons';
 import { loginSchema } from './loginSchema';
 import { FormLoginContainer } from './styles';
 
@@ -51,15 +50,15 @@ export const FormLogin = () => {
                 <Button type='submit' variant='contained' size='large' color='primary'>Logar</Button>
             </form>
             <p>Crie sua conta para saborear muitas delícias e matar sua fome!</p>
-            <Button 
-            type='button' 
-            variant='contained' 
-            size='large' 
-            color='secondary'
-            sx={{
-                '&:hover': { color: '#fff' }
-            }}
-            onClick={() => navigate('/register')} 
+            <Button
+                type='button'
+                variant='contained'
+                size='large'
+                color='secondary'
+                sx={{
+                    '&:hover': { color: '#fff' }
+                }}
+                onClick={() => navigate('/register')}
             >Cadastrar</Button>
         </FormLoginContainer>
     );
