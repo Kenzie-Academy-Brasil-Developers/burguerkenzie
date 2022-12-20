@@ -1,8 +1,8 @@
+import { Button } from '@mui/material';
 import { useContext } from 'react';
 import { toast } from 'react-toastify';
 
 import { CartContext, IProducts } from '../../contexts/CartContext';
-import { Button } from '../../styles/buttons';
 import { Product } from '../Product';
 import { FilterTools, ProductsBox } from './styles';
 
@@ -48,7 +48,10 @@ export const ProductsList = () => {
                             setInputValue('');
                             !e.currentTarget.value.length && setFilteredProducts([]);
                         }}
-                        variant='mediumGreen'
+                        type='button'
+                        variant='contained'
+                        size='large'
+                        color='primary'
                     >Limpar busca</Button>
                 </FilterTools>}
             <ul>
